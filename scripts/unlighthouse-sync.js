@@ -34,7 +34,7 @@ async function syncUnlighthouse() {
     fs.rmdirSync(".unlighthouse");
 
     // Commit changes
-    execSync("git add .unlighthouse");
+    execSync("git add .");
     execSync('git commit -m "sync: update unlighthouse reports"');
 
     // Push to remote
