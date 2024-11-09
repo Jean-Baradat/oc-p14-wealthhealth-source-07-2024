@@ -20,9 +20,22 @@ async function syncUnlighthouse() {
       .toString()
       .trim();
 
-    // Create and checkout new branch
-    const newBranchName = `unlighthouse-sync-${Date.now()}`;
-    execSync(`git checkout -b ${newBranchName} master`);
+    const targetBranch = "unlighthouse-reports";
+
+    // Check if branch exists
+    const branchExists = execSync("git branch --list " + targetBranch)
+      .toString()
+      .trim();
+
+    if (!branchExists) {
+      console.log(`Creating new branch: ${targetBranch}`);
+      execSync(`git checkout -b ${targetBranch} master`);
+    } else {
+      console.log(`Switching to existing branch: ${targetBranch}`);
+      execSync(`git checkout ${targetBranch}`);
+      // Reset to master to ensure clean state
+      execSync("git reset --hard master");
+    }
 
     // Remove everything except .unlighthouse
     execSync("git rm -rf .");
@@ -52,15 +65,15 @@ async function syncUnlighthouse() {
 
     // Commit changes
     execSync("git add .");
-    execSync('git commit -m "sync: update unlighthouse reports"');
+    execSync('git commit -m "sync: update unlighthouse reports at root level"');
 
-    // Push to remote
-    execSync(`git push origin ${newBranchName}`);
+    // Force push to remote since we're overwriting history
+    execSync(`git push -f origin ${targetBranch}`);
 
     // Return to original branch
     execSync(`git checkout ${currentBranch}`);
 
-    console.log(`✅ Successfully created and pushed branch: ${newBranchName}`);
+    console.log(`✅ Successfully updated ${targetBranch} branch`);
   } catch (error) {
     console.error("❌ Error:", error.message);
     process.exit(1);
