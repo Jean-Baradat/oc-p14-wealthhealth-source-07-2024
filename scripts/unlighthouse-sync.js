@@ -4,6 +4,17 @@ const path = require("path");
 
 async function syncUnlighthouse() {
   try {
+    // Check for uncommitted changes
+    const status = execSync("git status --porcelain").toString();
+    if (status) {
+      console.error(
+        "❌ You have uncommitted changes. Please commit or stash them first."
+      );
+      console.error("Changes detected:");
+      console.error(execSync("git status").toString());
+      process.exit(1);
+    }
+
     // Store current branch name
     const currentBranch = execSync("git rev-parse --abbrev-ref HEAD")
       .toString()
@@ -16,7 +27,13 @@ async function syncUnlighthouse() {
     // Remove everything except .unlighthouse
     execSync("git rm -rf .");
     execSync("git checkout master -- .gitignore");
-    execSync("git checkout master -- .unlighthouse");
+
+    // Generate Unlighthouse report
+    console.log("📊 Generating Unlighthouse report...");
+    execSync(
+      "unlighthouse-ci --site https://oc-p14-wealthhealth-source-07-2024.vercel.app/ --build-static",
+      { stdio: "inherit" }
+    );
 
     // Move content from .unlighthouse to root
     const unlighthousePath = path.join(process.cwd(), ".unlighthouse");
