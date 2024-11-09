@@ -6,7 +6,7 @@
   "scripts": {
     "lighthouse-wealthhealth": "unlighthouse-ci --site https://oc-p14-wealthhealth-source-07-2024.vercel.app/ --build-static",
     "deploy": "gh-pages -d .unlighthouse",
-    "create-branch": "node scripts/create-branch.js"
+    "unlighthouse-sync": "node scripts/unlighthouse-sync.js"
   },
   "author": "",
   "license": "ISC",
