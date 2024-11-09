@@ -1,0 +1,16 @@
+{
+  "name": "oc-p14-wealthhealth-source-07-2024",
+  "version": "1.0.0",
+  "description": ">This project is intended for the 14th project of the OpenClassrooms training \"Faites passer une librairie jQuery vers React.\" For more information and to see the result, please visit [https://github.com/Jean-Baradat/oc-p14-wealthhealth-07-2024](https://github.com/Jean-Baradat/oc-p14-wealthhealth-07-2024).",
+  "main": "app.js",
+  "scripts": {
+    "lighthouse-wealthhealth": "unlighthouse-ci --site https://oc-p14-wealthhealth-source-07-2024.vercel.app/ --build-static",
+    "deploy": "gh-pages -d .unlighthouse",
+    "create-branch": "node scripts/create-branch.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^6.2.0"
+  }
+}
