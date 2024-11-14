@@ -1,64 +1,67 @@
-<html>
-    <head>
-        <title>HRnet</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="jquery.datetimepicker.full.min.js"></script>
-        <link rel="stylesheet" href="jquery.datetimepicker.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="app.js"></script>
-        <link rel="stylesheet" href="app.css" />
-    </head>
-    <body>
-        <div class="title">
-            <h1>HRnet</h1>
-        </div>
-        <div class="container">
-            <a href="employee-list.html">View Current Employees</a>
-            <h2>Create Employee</h2>
-            <form action="#" id="create-employee">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" />
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <style>button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}</style>
 
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" media="(prefers-color-scheme:no-preference)">
+  <link rel="icon" href="assets/logo-dark.svg" type="image/svg+xml" media="(prefers-color-scheme:dark)">
+  <link rel="icon" href="assets/logo-light.svg" type="image/svg+xml" media="(prefers-color-scheme:light)">
 
-                <label for="date-of-birth">Date of Birth</label>
-                <input id="date-of-birth" type="text" >
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=DM+Serif+Display:ital@0;1&display=swap">
+  <title>Unlighthouse</title>
+  <script data-unlighthouse-inline>window.__unlighthouse_static = true</script>
+  <script data-unlighthouse-payload src="assets/payload.js"></script>
+  <style>:root {
+  --c-bg: #fff;
+  --c-scrollbar: #eee;
+  --c-scrollbar-hover: #bbb;
+}
+html.dark {
+  --c-bg: #050505;
+  --c-scrollbar: #111;
+  --c-scrollbar-hover: #222;
+}
+* {
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}</style>
+  <script type="module" crossorigin src="assets/index.487582af.js"></script>
+  <link rel="stylesheet" href="assets/index.2dd8ef1e.css">
+</head>
+<body class="dark:bg-[#020617]">
+<div id="app"></div>
+<script>
+(function () {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('color-schema') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
 
-                <label for="start-date">Start Date</label>
-                <input id="start-date" type="text" >
+  // document.title = __unlighthouse_data.options.host.replace(/https?:\/\/(www.)?/, '') + ' | Unlighthouse'
+})()
+</script>
 
-                <fieldset class="address">
-                    <legend>Address</legend>
-
-                    <label for="street">Street</label>
-                    <input id="street" type="text" />
-
-                    <label for="city">City</label>
-                    <input id="city" type="text" />
-
-                    <label for="state">State</label>
-                    <select name="state" id="state"></select>
-
-                    <label for="zip-code">Zip Code</label>
-                    <input id="zip-code" type="number" />
-                </fieldset>
-
-                <label for="department">Department</label>
-                <select name="department" id="department">
-                    <option>Sales</option>
-                    <option>Marketing</option>
-                    <option>Engineering</option>
-                    <option>Human Resources</option>
-                    <option>Legal</option>
-                </select>
-            </form>
-
-            <button onclick="saveEmployee()">Save</button>
-        </div>
-        <div id="confirmation" class="modal">Employee Created!</div>
-    </body>
+</body>
 </html>

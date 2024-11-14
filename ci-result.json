@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/",
+    "score": 0.9,
+    "performance": 0.92,
+    "accessibility": 0.91,
+    "best-practices": 0.86,
+    "seo": 0.9
+  },
+  {
+    "path": "/employee-list.html",
+    "score": 0.93,
+    "performance": 0.98,
+    "accessibility": 0.96,
+    "best-practices": 0.86,
+    "seo": 0.9
+  }
+]
