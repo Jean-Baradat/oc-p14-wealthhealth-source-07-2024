@@ -50,7 +50,7 @@ async function syncUnlighthouse() {
 		// --------- Generate Unlighthouse report ---------
 		console.log("📊 Generating Unlighthouse report...")
 		execSync(
-			"unlighthouse-ci --site https://oc-p14-wealthhealth-source-07-2024.vercel.app/ --build-static --urls '/employee-list.html'",
+			"unlighthouse-ci --site https://oc-p14-wealthhealth-source-07-2024.vercel.app/ --build-static --urls /employee-list.html",
 			{ stdio: "inherit" }
 		)
 
