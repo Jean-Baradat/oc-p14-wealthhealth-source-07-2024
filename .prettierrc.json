@@ -1,0 +1,33 @@
+{
+	"semi": false,
+	"singleQuote": false,
+	"tabWidth": 2,
+	"useTabs": true,
+	"endOfLine": "lf",
+	"arrowParens": "avoid",
+	"singleAttributePerLine": true,
+	"bracketSameLine": false,
+	"overrides": [
+		{	
+			"files": "*.scss",
+			"options": {
+				"printWidth": 80
+			}
+		},
+		{
+			"files": "*.css",
+			"options": {
+				"printWidth": 80,
+				"singleQuote": false
+			}
+		},
+		{
+			"files": "*.html",
+			"options": {
+				"singleAttributePerLine": false,
+				"bracketSameLine": true,
+				"printWidth": 300
+			}
+		}
+	]
+}
